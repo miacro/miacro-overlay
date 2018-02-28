@@ -38,10 +38,10 @@ src_install() {
 	pushd src/${EGO_PN} || die
 	dobin _output/bin/${PN}
 	popd || die
-	keepdir /var/log/${PN}
-	fowners ${PN}:${PN} /var/log/${PN}
-	newinitd "${FILESDIR}"/${PN}.initd ${PN}
-	newconfd "${FILESDIR}"/${PN}.confd ${PN}
-	insinto /etc/logrotate.d
-	newins "${FILESDIR}"/${PN}.logrotated ${PN}
+	# keepdir /var/log/${PN}
+	# fowners ${PN}:${PN} /var/log/${PN}
+	# newinitd "${FILESDIR}"/${PN}.initd ${PN}
+	# newconfd "${FILESDIR}"/${PN}.confd ${PN}
+	# nsinto /etc/logrotate.d
+	# newins "${FILESDIR}"/${PN}.logrotated ${PN}
 }
