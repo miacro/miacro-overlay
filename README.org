@@ -1,4 +1,4 @@
 #+title: A Local Gentoo Overlay
-* [[https://wiki.gentoo.org/wiki/Handbook:AMD64/Portage/CustomTree#Defining_a_custom_repository][Creating a local repository]]
-* [[https://wiki.gentoo.org/wiki/Custom_repository][Adding an ebuild to the repository
-]]
+* reference
+- [[https://wiki.gentoo.org/wiki/Handbook:AMD64/Portage/CustomTree#Defining_a_custom_repository][Creating a local repository]]
+- [[https://wiki.gentoo.org/wiki/Custom_repository][Adding an ebuild to the repository]]
