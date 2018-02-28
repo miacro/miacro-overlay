@@ -1,2 +1,0 @@
-# miacro-overlay
-gentoo overlay
