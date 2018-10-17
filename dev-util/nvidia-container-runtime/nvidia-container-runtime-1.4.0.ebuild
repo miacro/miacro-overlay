@@ -23,7 +23,7 @@ IUSE="+ambient apparmor hardened +seccomp"
 RDEPEND="
 	apparmor? ( sys-libs/libapparmor )
 	seccomp? ( sys-libs/libseccomp )
-	!app-emulation/docker-runc
+	dev-util/nvidia-container-runtime-hook
 "
 
 src_unpack() {
