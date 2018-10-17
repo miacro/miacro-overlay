@@ -15,7 +15,7 @@ SLOT="0"
 IUSE=""
 
 DEPEND="dev-lang/go"
-RDEPEND=""
+RDEPEND="dev-util/libnvidia-container"
 
 src_unpack() {
 	mkdir -p "${WORKDIR}/${P}/src/${PN}" || die
@@ -32,4 +32,6 @@ src_install() {
 	pushd bin || die
 	dobin nvidia-container-runtime-hook
 	popd || die
+	insinto /etc/nvidia-container-runtime
+	newins src/${PN}/hook/config.toml.debian config.toml
 }
