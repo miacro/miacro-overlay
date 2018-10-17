@@ -8,6 +8,7 @@ DESCRIPTION="NVIDIA container runtime library"
 HOMEPAGE="https://github.com/NVIDIA/libnvidia-container"
 # SRC_URI="https://github.com/NVIDIA/libnvidia-container/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 EGIT_REPO_URI="https://github.com/NVIDIA/libnvidia-container.git"
+EGIT_COMMIT=v${PV}
 
 LICENSE="BSD-3"
 SLOT="0"
@@ -37,9 +38,8 @@ ncrlib_configure() {
 
 src_unpack() {
 	git-r3_src_unpack "$@"
-	cd ${WORKDIR}/${P} || die
-	git checkout v${PV}
 
+	cd ${WORKDIR}/${P} || die
 	ncrlib_configure
 	make ${MY_FLAGS} deps || die
 }
