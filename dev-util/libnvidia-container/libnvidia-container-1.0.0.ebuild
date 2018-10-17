@@ -8,7 +8,7 @@ DESCRIPTION="NVIDIA container runtime library"
 HOMEPAGE="https://github.com/NVIDIA/libnvidia-container"
 # SRC_URI="https://github.com/NVIDIA/libnvidia-container/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 EGIT_REPO_URI="https://github.com/NVIDIA/libnvidia-container.git"
-EGIT_COMMIT=v${PV}
+EGIT_OVERRIDE_COMMIT_NVIDIA_LIBNVIDIA_CONTAINER=v${PV}
 
 LICENSE="BSD-3"
 SLOT="0"
@@ -20,7 +20,7 @@ MY_MAJOR_VERSON=$(get_major_version)
 DEPEND="seccomp? ( sys-libs/libseccomp )"
 RDEPEND="${DEPEND}"
 
-ncrlib_configure() {
+my_configure() {
 	if use elf ; then
 		MY_FLAGS="${MY_FLAGS} WITH_LIBELF=yes"
 	else
@@ -40,7 +40,7 @@ src_unpack() {
 	git-r3_src_unpack "$@"
 
 	cd ${WORKDIR}/${P} || die
-	ncrlib_configure
+	my_configure
 	make ${MY_FLAGS} deps || die
 }
 
