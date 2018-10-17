@@ -3,7 +3,7 @@
 
 EAPI=6
 
-DESCRIPTION="NVIDIA Docker"
+DESCRIPTION="Build and run Docker containers leveraging NVIDIA GPUs"
 HOMEPAGE="https://github.com/NVIDIA/nvidia-docker"
 SRC_URI="https://github.com/NVIDIA/nvidia-docker/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -14,13 +14,14 @@ IUSE=""
 
 DEPEND="
 	app-emulation/docker
+	dev-util/nvidia-container-runtime
 "
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	emake prefix="/usr"
+	return
 }
 
 src_install() {
-	emake prefix="${D}/usr" install
+	dobin nvidia-docker || die
 }
