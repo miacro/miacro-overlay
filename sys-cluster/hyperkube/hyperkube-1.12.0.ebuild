@@ -5,7 +5,7 @@ EGO_PN="k8s.io/kubernetes"
 ARCHIVE_URI="https://github.com/kubernetes/kubernetes/archive/v${PV}.tar.gz -> kubernetes-${PV}.tar.gz"
 KEYWORDS="~amd64"
 
-DESCRIPTION="Kubernetes Hyperkube"
+DESCRIPTION="Kubernetes Node Agent"
 HOMEPAGE="https://github.com/kubernetes/kubernetes https://kubernetes.io"
 SRC_URI="${ARCHIVE_URI}"
 
@@ -32,9 +32,4 @@ src_install() {
 	pushd src/${EGO_PN} || die
 	dobin _output/bin/${PN}
 	popd || die
-	# keepdir /etc/kubernetes/manifests /var/log/kubelet /var/lib/kubelet
-	# newinitd "${FILESDIR}"/${PN}.initd ${PN}
-	# newconfd "${FILESDIR}"/${PN}.confd ${PN}
-	# insinto /etc/logrotate.d
-	# newins "${FILESDIR}"/${PN}.logrotated ${PN}
 }
